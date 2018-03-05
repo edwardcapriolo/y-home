@@ -36,4 +36,26 @@ public class SeqSegmentFinder {
 		}
 		return results;
 	}
+	//1--18, 19--30, 36-37
+	public Collection<Segment> mergeByDelta(long delta){
+		Collection<Segment> results = new ArrayList<Segment>();
+		Segment last = null;
+		for(Segment thisSegment: segments) {
+			if (last == null) {
+				last = thisSegment;
+			} else {
+				if (thisSegment.getStartTime() < last.getEndTime()) {
+					//out of order message spec does not say
+				} else if (thisSegment.getStartTime() - last.getEndTime() > delta) {
+					results.add(last);
+					last = thisSegment;
+				} else {
+					last = new Segment(last.getStartTime(), thisSegment.getEndTime());
+				}
+			}
+		}
+		results.add(last);
+		return results;
+	}
+	
 }

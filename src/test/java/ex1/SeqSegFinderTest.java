@@ -19,4 +19,17 @@ public class SeqSegFinderTest {
 						new Segment(24, 27),
 						new Segment(29, 33))).filterByDelta(5));
 	}
+	
+
+	@Test
+	public void mergeExample() {
+		assertEquals(Arrays.asList(new Segment(1, 12),new Segment(18, 33)), 
+				new SeqSegmentFinder(
+				Arrays.asList(new Segment(1, 8),
+						new Segment(10, 12),
+						new Segment(18, 20),
+						new Segment(5, 7),
+						new Segment(24, 27),
+						new Segment(29, 33))).mergeByDelta(5));
+	}
 }
