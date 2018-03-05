@@ -58,7 +58,15 @@ Site	SiteID	INT	Auto Increment PK
 	 */
 	 
 	/*
-	 * 
+	 * CREATE TABLE final_answer AS (
+	 *   SELECT * FROM (SELECT distinct(CookieId) FROM ( ^code above^ ) ) A 
+	 *     INNER JOIN  (SELECT min(ViewTimeStamp), max(ViewTimeStamp), CookieId) B
+	 *     ON a.CookieId = b.CookieId 
+	 * )
 	 */
+	
+	/* question 2 
+	 * SELECT * FROM user_address where state = 'New York' and Start_DateTime >='2017 04 01' and End_dateTime < '2017 04 01'
+	 * */
 	 
 }
