@@ -61,7 +61,7 @@ Site	SiteID	INT	Auto Increment PK
 	 * Question 1
 	 * CREATE TABLE final_answer AS (
 	 *   SELECT * FROM (SELECT distinct(CookieId) FROM ( ^code above^ ) ) A 
-	 *     INNER JOIN  (SELECT min(ViewTimeStamp), max(ViewTimeStamp), CookieId) B
+	 *     INNER JOIN  (SELECT min(ViewTimeStamp), max(ViewTimeStamp), CookieId FROM Logs GROUP BY CookieId) B
 	 *     ON a.CookieId = b.CookieId 
 	 * )
 	 */
