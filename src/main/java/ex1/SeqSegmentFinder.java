@@ -36,7 +36,7 @@ public class SeqSegmentFinder {
 		}
 		return results;
 	}
-	//1--18, 19--30, 36-37
+
 	public Collection<Segment> mergeByDelta(long delta){
 		Collection<Segment> results = new ArrayList<Segment>();
 		Segment last = null;
